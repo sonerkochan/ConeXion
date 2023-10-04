@@ -24,6 +24,14 @@ namespace ConeXion.Core.Contracts
         /// <returns>String that is the username of a given user.</returns>
         public string GetUserNameById(string userId);
 
+
+        /// <summary>
+        /// Returns the name of a user by their Id.
+        /// </summary>
+        /// <param name="userId">User's Id.</param>
+        /// <returns>String that is the username of a given user.</returns>
+        public string GetUserID(string userId);
+
         /// <summary>
         /// Returns a list of all users that are registered on the website.
         /// </summary>

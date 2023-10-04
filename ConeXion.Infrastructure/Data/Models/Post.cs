@@ -18,9 +18,8 @@ namespace ConeXion.Infrastructure.Data.Models
         [Description("Text content of the post.")]
         public string TextContent { get; set; } = null!;
 
-        [Required]
         [Description("Link to the image of the product.")]
-        public string ImageData { get; set; } = null!;
+        public string? ImageData { get; set; } = null!;
 
 
         [Description("Id of the user that posted the post.")]

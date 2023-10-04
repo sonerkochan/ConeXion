@@ -36,7 +36,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 //        options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
 //    });
 
-////builder.Services.AddApplicationServices();
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 

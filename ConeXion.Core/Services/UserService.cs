@@ -37,6 +37,12 @@ namespace ConeXion.Core.Services
         {
             return userManager.FindByIdAsync(userId).GetAwaiter().GetResult().UserName;
         }
+
+        public string GetUserID(string userId)
+        {
+            return userId;
+        }
+
         public async Task<IEnumerable<UserServiceModel>> All()
         {
             List<UserServiceModel> result;
