@@ -1,6 +1,7 @@
 ﻿using ConeXion.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using static ConeXion.Areas.Member.Constants.MemberConstants;
 
 namespace ConeXion.Controllers
 {
@@ -15,6 +16,11 @@ namespace ConeXion.Controllers
 
         public IActionResult Index()
         {
+            if (User.IsInRole(MemberRoleName))
+            {
+                return RedirectToAction("Index", MemberRoleName, new { area = MemberAreaName });
+            }
+
             return View();
         }
 
