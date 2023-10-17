@@ -1,4 +1,5 @@
-﻿using ConeXion.Infrastructure.Data.Models;
+﻿using ConeXion.Infrastructure.Data.Configuration;
+using ConeXion.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
@@ -43,6 +44,7 @@ namespace ConeXion.Infrastructure.Data
                 .HasMaxLength(EmailMaxLength)
                 .IsRequired();
 
+            builder.ApplyConfiguration(new RoleConfigration());
 
             base.OnModelCreating(builder);
         }

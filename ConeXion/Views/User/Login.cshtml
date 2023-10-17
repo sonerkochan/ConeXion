@@ -4,59 +4,37 @@
     ViewData["Title"] = "Log in";
 }
 
-<!DOCTYPE HTML>
-<html>
 <head>
-    <link rel="icon" type="image/x-icon" href="~/Images/Logo - icon.ico">
+    @*
+    <link rel="stylesheet" type="text/css" href="~/css/login.css">
+    *@
     <title>ConeXion</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="css/main.css" />
-    <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-    <link rel="stylesheet" type="text/css" href="~/css/login_register.css">
-    <title>ConeXion</title>
-
 </head>
 
-<body class="bg">
-        <div class="form-container">
-            <div class="form-box">
-                <div class="form-side login" action="#">
-                    <form id="account" method="post">
-                        <h1 class="major">LOG IN</h1>
 
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-field">
-                            <label asp-for="@Model.UserName" class="field half" font>Username</label>
-                            <input asp-for="@Model.UserName" type="username" class="form-control" autocomplete="username" aria-required="true" />
-                            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
-                        </div>
-                        <div class="form-field">
-                            <label asp-for="@Model.Password" class="field half">Password</label>
-                            <input asp-for="@Model.Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" />
-                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                        </div>
-
-                        <div class="field half">
-                            <button id="login-submit" type="submit" class="primary">Log In</button>
-                        </div>
-                        <div>
-                            <p style="font-size: 10px;">
-                                Still don't have an account?
-                                <span>
-                                    <a href="/User/Register" id="flip-register" class="flip-button" style="font-size: 10px;">Create now</a>
-                                </span>
-                                <br>
-                                <span>
-                                    <a href="@Url.Action("Index", "Home")" style="font-size: 8px; text-align: center; display: block; margin: 12px auto;">- Back to main -</a>
-                                </span>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<body>
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <section>
+                <form id="account" method="post">
+                
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="text-center mb-3">
+                        <label asp-for="@Model.UserName" class="form-label">Username</label>
+                        <input asp-for="@Model.UserName" class="form-control" autocomplete="username" aria-required="true" />
+                        <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="text-center mb-3">
+                        <label asp-for="@Model.Password" class="form-label"></label>
+                        <input asp-for="@Model.Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" />
+                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                    </div>
+                    <div class="text-center">
+                        <button id="login-submit" type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
-
-    <div id="bg"></div>
-</body>
+ </body>
