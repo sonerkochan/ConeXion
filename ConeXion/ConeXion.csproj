@@ -8,6 +8,46 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\User\**" />
+    <Content Remove="Areas\User\**" />
+    <EmbeddedResource Remove="Areas\User\**" />
+    <None Remove="Areas\User\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\sass\base\_page.scss" />
+    <None Include="wwwroot\sass\base\_reset.scss" />
+    <None Include="wwwroot\sass\base\_typography.scss" />
+    <None Include="wwwroot\sass\components\_actions.scss" />
+    <None Include="wwwroot\sass\components\_box.scss" />
+    <None Include="wwwroot\sass\components\_button.scss" />
+    <None Include="wwwroot\sass\components\_form.scss" />
+    <None Include="wwwroot\sass\components\_icon.scss" />
+    <None Include="wwwroot\sass\components\_icons.scss" />
+    <None Include="wwwroot\sass\components\_image.scss" />
+    <None Include="wwwroot\sass\components\_list.scss" />
+    <None Include="wwwroot\sass\components\_table.scss" />
+    <None Include="wwwroot\sass\layout\_bg.scss" />
+    <None Include="wwwroot\sass\layout\_footer.scss" />
+    <None Include="wwwroot\sass\layout\_header.scss" />
+    <None Include="wwwroot\sass\layout\_main.scss" />
+    <None Include="wwwroot\sass\layout\_wrapper.scss" />
+    <None Include="wwwroot\sass\libs\_breakpoints.scss" />
+    <None Include="wwwroot\sass\libs\_functions.scss" />
+    <None Include="wwwroot\sass\libs\_mixins.scss" />
+    <None Include="wwwroot\sass\libs\_vars.scss" />
+    <None Include="wwwroot\sass\libs\_vendor.scss" />
+    <None Include="wwwroot\sass\main.scss" />
+    <None Include="wwwroot\sass\noscript.scss" />
+    <None Include="wwwroot\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />

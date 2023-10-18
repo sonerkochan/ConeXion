@@ -62,7 +62,7 @@ namespace ConeXion.Controllers
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 addPostViewModel.UserID = userId;
 
-                //Is the code above okay?
+                //Is the code above okay? I think there's another way of doing it but \("/)/
 
                 await postService.AddPostAsync(addPostViewModel);
 
