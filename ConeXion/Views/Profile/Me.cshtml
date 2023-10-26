@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PostViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Your Profile</h1>
+</div>
+<div>
+
+    <button type="button" class="button" style="border:1px solid black; margin-right: 10px">
+        <div>
+            <a class="nav-link text-dark" asp-controller="Post" asp-action="Add">Make a post</a>
+        </div>
+    </button>
+
+    <div class="box">
+        @foreach (var post in Model)
+        {
+            <div class="card col-4" style="width: 20rem; margin:20px 0px;">
+                @if (post.ImageData.Contains(".com"))
+                {
+                                <img class="card-img-top" style="width: auto; height: 250px;"
+                         src="@post.ImageData" alt="Post Image">
+                }
+
+                            <div class="card-body">
+
+                                <h5 class="card-title mt-1">@post.TextContent</h5>
+                            </div>
+            </div>
+        }
+    </div>
+
+</div>

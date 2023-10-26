@@ -1,12 +1,9 @@
-﻿using ConeXion.Core.Models.User;
+﻿using ConeXion.Core.Contracts;
+using ConeXion.Core.Models.User;
 using ConeXion.Infrastructure.Data.Common;
 using ConeXion.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ConeXion.Core.Contracts;
-using ConeXion.Core.Models.User;
-using ConeXion.Infrastructure.Data.Common;
-using ConeXion.Infrastructure.Data.Models;
 using System.ComponentModel;
 
 namespace ConeXion.Core.Services

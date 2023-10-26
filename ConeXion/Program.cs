@@ -1,9 +1,8 @@
-using ConeXion.Infrastructure.Data.Models;
 using ConeXion.Infrastructure.Data;
+using ConeXion.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 //using ConeXion.Core.Data;
-using ConeXion.Infrastructure.Data.Models;
 //using ConeXion.ModelBinders;
 using static ConeXion.Infrastructure.Data.Constants.GlobalConstants;
 
@@ -30,11 +29,11 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = "/User/Logout";
 });
 
-//builder.Services.AddControllersWithViews()
-//    .AddMvcOptions(options =>
-//    {
-//        options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
-//    });
+builder.Services.AddControllersWithViews();
+    //.AddMvcOptions(options =>
+    //{
+    //    options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+    //});
 
 builder.Services.AddApplicationServices();
 

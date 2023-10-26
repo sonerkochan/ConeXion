@@ -2,14 +2,8 @@
 using ConeXion.Core.Models.Post;
 using ConeXion.Infrastructure.Data.Common;
 using ConeXion.Infrastructure.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConeXion.Core.Services
 {
@@ -34,12 +28,42 @@ namespace ConeXion.Core.Services
             {
                 TextContent = model.TextContent,
                 ImageData = model.ImageData,
-                UserID=model.UserID
+                UserID = model.UserID
             };
 
             await repo.AddAsync(entity);
             await repo.SaveChangesAsync();
 
+        }
+
+        [Description("Returns all posts.")]
+        public async Task<IEnumerable<PostViewModel>> GetAllAsync()
+        {
+            return await repo.AllReadonly<Post>()
+                .Select(h => new PostViewModel()
+                {
+                    Id = h.Id,
+                    TextContent = h.TextContent,
+                    ImageData = h.ImageData,
+                    UserID = h.UserID
+                })
+                .ToListAsync();
+        }
+
+
+        [Description("Returns all posts made by a given user.")]
+        public async Task<IEnumerable<PostViewModel>> GetUsersPostsAsync(string userId)
+        {
+            return await repo.AllReadonly<Post>()
+                .Select(h => new PostViewModel()
+                {
+                    Id = h.Id,
+                    TextContent = h.TextContent,
+                    ImageData = h.ImageData,
+                    UserID = h.UserID
+                })
+                .Where(x => x.UserID == userId)
+                .ToListAsync();
         }
     }
 }

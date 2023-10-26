@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PostViewModel>
+
+@{
+    ViewData["Title"] = "Homepage";
+    int i = 0;
+}
+
+<html>
+
+<head>
+    <title>ConeXion</title>
+    <link href="~/css/styling.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">ConeXion</h1>
+    </div>
+
+    <div class="text-center">
+        <h2 class="display-4">Home Page</h2>
+    </div>
+
+    <div class="box">
+        @foreach (var post in Model)
+        {
+                <div class="card col-4" style="width: 20rem; ">
+
+                    <img class="card-img-top" style="width: auto; height: 250px;"
+                 src="@post.ImageData" alt="Post Image">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title mt-1">@post.TextContent</h5>
+                    </div>
+                </div>
+        }
+    </div>
+</body>
+</html>

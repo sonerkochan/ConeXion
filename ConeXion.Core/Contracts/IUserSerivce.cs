@@ -1,7 +1,5 @@
 ﻿using ConeXion.Core.Models.User;
 using ConeXion.Infrastructure.Data.Models;
-using ConeXion.Core.Models.User;
-using ConeXion.Infrastructure.Data.Models;
 
 namespace ConeXion.Core.Contracts
 {

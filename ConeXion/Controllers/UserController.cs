@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ConeXion.Core.Models.User;
+using ConeXion.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ConeXion.Infrastructure.Data.Models;
-using ConeXion.Core.Models.User;
-using ConeXion.Core.Models.User;
-using ConeXion.Infrastructure.Data.Models;
 
 namespace ConeXion.Controllers
 {
