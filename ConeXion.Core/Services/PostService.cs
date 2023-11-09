@@ -1,4 +1,5 @@
 ﻿using ConeXion.Core.Contracts;
+using ConeXion.Core.Models.Like;
 using ConeXion.Core.Models.Post;
 using ConeXion.Infrastructure.Data.Common;
 using ConeXion.Infrastructure.Data.Models;
@@ -23,7 +24,6 @@ namespace ConeXion.Core.Services
         [Description("Creates a new post and adds it to the database.")]
         public async Task AddPostAsync(AddPostViewModel model)
         {
-
             var entity = new Post()
             {
                 TextContent = model.TextContent,
@@ -63,7 +63,25 @@ namespace ConeXion.Core.Services
                     UserID = h.UserID
                 })
                 .Where(x => x.UserID == userId)
-                .ToListAsync();
+            .ToListAsync();
+        }
+
+        public async Task LikePostAsync(NewLikeViewModel model)
+        {
+            var entity = new Like()
+            {
+                PostID = model.PostID,
+                UserID = model.UserID
+            };
+
+
+            var allLikes = repo.AllReadonly<Like>();
+
+            if (!allLikes.Any(x => x.UserID == model.UserID && x.PostID==model.PostID))
+            {
+                await repo.AddAsync(entity);
+                await repo.SaveChangesAsync();
+            }
         }
     }
 }

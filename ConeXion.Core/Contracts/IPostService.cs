@@ -1,4 +1,5 @@
-﻿using ConeXion.Core.Models.Post;
+﻿using ConeXion.Core.Models.Like;
+using ConeXion.Core.Models.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace ConeXion.Core.Contracts
         Task AddPostAsync(AddPostViewModel model);
         Task<IEnumerable<PostViewModel>> GetAllAsync();
         Task<IEnumerable<PostViewModel>> GetUsersPostsAsync(string userId);
-        
+
+        Task LikePostAsync(NewLikeViewModel model);
+
     }
 }

@@ -12,18 +12,26 @@
     <div class="box">
         @foreach (var post in Model)
         {
-                    <div class="card col-4" style="width: 20rem; margin:20px 0px;">
-                                @if(post.ImageData.Contains(".com"))
-                        {
-                        <img class="card-img-top" style="width: auto; height: 250px;"
-                         src="@post.ImageData" alt="Post Image">
-                        }
+            <div class="card col-4" style="width: 20rem; margin:20px 0px;">
+                @if (post.ImageData.Contains(".com"))
+                {
+                    <img class="card-img-top" style="width: auto; height: 250px;"
+                 src="@post.ImageData" alt="Post Image">
+                }
 
-                        <div class="card-body">
+                <div class="card-body">
 
-                            <h5 class="card-title mt-1">@post.TextContent</h5>
-                        </div>
+                    <h5 class="card-title mt-1">@post.TextContent</h5>
+                </div>
+
+                <form asp-controller="Post" asp-action="Like" method="post" asp-route-postId="@post.Id">
+                   
+                    <div class="mb-3">
+                        <input class="btn btn-primary" type="submit"  value="Like" />
                     </div>
+                </form>
+
+            </div>
         }
     </div>
 
