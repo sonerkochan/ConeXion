@@ -37,7 +37,7 @@ namespace ConeXion.Core.Services
         }
 
         [Description("Returns all posts.")]
-        public async Task<IEnumerable<PostViewModel>> GetAllAsync()
+        public async Task<IEnumerable<PostViewModel>> GetAllAsync(string userId)
         {
             return await repo.AllReadonly<Post>()
                 .Select(h => new PostViewModel()
@@ -47,6 +47,7 @@ namespace ConeXion.Core.Services
                     ImageData = h.ImageData,
                     UserID = h.UserID
                 })
+                .Where(x => x.UserID != userId)
                 .ToListAsync();
         }
 

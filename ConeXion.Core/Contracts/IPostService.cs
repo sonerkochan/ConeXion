@@ -11,7 +11,7 @@ namespace ConeXion.Core.Contracts
     public interface IPostService
     {
         Task AddPostAsync(AddPostViewModel model);
-        Task<IEnumerable<PostViewModel>> GetAllAsync();
+        Task<IEnumerable<PostViewModel>> GetAllAsync(string userId);
         Task<IEnumerable<PostViewModel>> GetUsersPostsAsync(string userId);
 
         Task LikePostAsync(NewLikeViewModel model);

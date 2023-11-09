@@ -104,7 +104,6 @@ namespace ConeXion.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("CATCH");
                 ModelState.AddModelError("", "Something went wrong");
 
                 return View(newLikeViewModel);

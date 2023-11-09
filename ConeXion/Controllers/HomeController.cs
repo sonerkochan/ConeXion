@@ -3,6 +3,7 @@ using ConeXion.Core.Services;
 using ConeXion.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using static ConeXion.Areas.Member.Constants.MemberConstants;
 
 namespace ConeXion.Controllers
@@ -33,7 +34,8 @@ namespace ConeXion.Controllers
 
         public async Task<IActionResult> Home()
         {
-            var model = await postService.GetAllAsync();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var model = await postService.GetAllAsync(userId);
 
             return View(model);
         }

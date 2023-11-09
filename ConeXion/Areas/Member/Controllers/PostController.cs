@@ -1,6 +1,7 @@
 ﻿using ConeXion.Core.Contracts;
 using ConeXion.Core.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ConeXion.Areas.Member.Controllers
 {
@@ -13,13 +14,6 @@ namespace ConeXion.Areas.Member.Controllers
            IPostService _postService)
         {
             postService = _postService;
-        }
-
-        public async Task<IActionResult> All()
-        {
-            var model = await postService.GetAllAsync();
-
-            return View(model);
         }
     }
 }
