@@ -1,4 +1,8 @@
-﻿@model IEnumerable<PostViewModel>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@model IEnumerable<PostViewModel>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -24,12 +28,31 @@
                     <h5 class="card-title mt-1">@post.TextContent</h5>
                 </div>
 
-                <form asp-controller="Post" asp-action="Like" method="post" asp-route-postId="@post.Id">
+                @{
+                    @using Microsoft.AspNetCore.Identity
+
+                    var user = await UserManager.GetUserAsync(User);
+                    var userId = user?.Id;
+                    if (!post.UserLikes.Any(x => x.UserID == userId))
+                    {
+                        <form asp-controller="Post" asp-action="Like" method="post" asp-route-postId="@post.Id">
                    
                     <div class="mb-3">
                         <input class="btn btn-primary" type="submit"  value="Like" />
                     </div>
-                </form>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-controller="Post" asp-action="Dislike" method="post" asp-route-postId="@post.Id">
+
+                            <div class="mb-3">
+                                <input class="btn btn-primary" type="submit" value="Dislike" />
+                            </div>
+                        </form>
+                    }
+
+                }
 
             </div>
         }

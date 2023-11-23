@@ -110,5 +110,15 @@ namespace ConeXion.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Dislike(int postId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            postService.DislikePostAsync(userId, postId);
+
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

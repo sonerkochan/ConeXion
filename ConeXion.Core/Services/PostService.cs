@@ -1,6 +1,7 @@
 ﻿using ConeXion.Core.Contracts;
 using ConeXion.Core.Models.Like;
 using ConeXion.Core.Models.Post;
+using ConeXion.Infrastructure.Data;
 using ConeXion.Infrastructure.Data.Common;
 using ConeXion.Infrastructure.Data.Models;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +14,15 @@ namespace ConeXion.Core.Services
 
         private readonly IRepository repo;
         private readonly IUserService userSerivce;
+        private readonly ApplicationDbContext context;
 
         public PostService(IRepository _repo,
-                           IUserService _userService)
+                           IUserService _userService,
+                           ApplicationDbContext _context)
         {
             repo = _repo;
             userSerivce = _userService;
+            context = _context;
         }
 
         [Description("Creates a new post and adds it to the database.")]
@@ -36,6 +40,17 @@ namespace ConeXion.Core.Services
 
         }
 
+        public void DislikePostAsync(string userId, int postId)
+        {
+            Like likeToRemove = repo.All<Like>()
+                .FirstOrDefault(x => x.UserID == userId && x.PostID == postId);
+
+            context.Likes.Remove(likeToRemove);          
+            context.SaveChanges();
+        }
+
+
+
         [Description("Returns all posts.")]
         public async Task<IEnumerable<PostViewModel>> GetAllAsync(string userId)
         {
@@ -45,7 +60,8 @@ namespace ConeXion.Core.Services
                     Id = h.Id,
                     TextContent = h.TextContent,
                     ImageData = h.ImageData,
-                    UserID = h.UserID
+                    UserID = h.UserID,
+                    UserLikes = h.UserLikes
                 })
                 .Where(x => x.UserID != userId)
                 .ToListAsync();

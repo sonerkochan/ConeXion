@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using ConeXion.Infrastructure.Data.Models;
 
 namespace ConeXion.Core.Models.Post
 {
@@ -23,5 +17,8 @@ namespace ConeXion.Core.Models.Post
 
         [Description("Id of the user that posted the post.")]
         public string UserID { get; set; }
+
+        [Description("List of likes of the users that liked the post")]
+        public ICollection<ConeXion.Infrastructure.Data.Models.Like> UserLikes { get; set; } = new List<ConeXion.Infrastructure.Data.Models.Like>();
     }
 }

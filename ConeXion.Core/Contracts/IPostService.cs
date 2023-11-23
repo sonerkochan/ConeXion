@@ -15,6 +15,7 @@ namespace ConeXion.Core.Contracts
         Task<IEnumerable<PostViewModel>> GetUsersPostsAsync(string userId);
 
         Task LikePostAsync(NewLikeViewModel model);
+        void DislikePostAsync(string userId, int postId);
 
     }
 }

@@ -29,5 +29,8 @@ namespace ConeXion.Infrastructure.Data.Models
 
         public User User { get; set; } = null!;
 
+        [Description("List of likes of the users that liked the post")]
+        public ICollection<Like> UserLikes { get; set; } = new List<Like>();
+
     }
 }

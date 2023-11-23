@@ -4,6 +4,7 @@ using ConeXion.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConeXion.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231109110402_AddedUserLikesInPostEntityMigration")]
+    partial class AddedUserLikesInPostEntityMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,14 +114,14 @@ namespace ConeXion.Infrastructure.Migrations
                         new
                         {
                             Id = "d9de7285-b674-454c-9889-5210abb8d347",
-                            ConcurrencyStamp = "332fa603-87ac-4277-968e-131d85030fc7",
+                            ConcurrencyStamp = "8f3ff2fb-7fac-44b9-b791-6eea97fca6b6",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "07358494-247c-421c-8f7f-82c12be55276",
-                            ConcurrencyStamp = "14e67afb-1906-483b-ad89-dc837cd3c2b0",
+                            ConcurrencyStamp = "c9b0036f-5d18-4a7e-a804-91086207bc9e",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         });
